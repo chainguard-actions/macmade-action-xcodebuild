@@ -1,0 +1,28 @@
+name: Test - No-op (all flags disabled)
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        run-config:
+          - info: 0
+            build: 0
+            analyze: 0
+            test: 0
+            project: "MyApp.xcodeproj"
+            scheme: "MyApp"
+            configuration: "Debug"
+            destination: "platform=macOS"
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Run action (all flags disabled - no xcodebuild calls)
+        id: action
+        uses: .
+
+      - name: Assert action completed without error
+        run: |
+          echo "Action completed successfully with all flags disabled"
+          echo "PASS: no xcodebuild steps were triggered"

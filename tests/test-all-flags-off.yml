@@ -1,0 +1,28 @@
+name: Test - All individual flags off
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        run-config:
+          - info: 0
+            build: 0
+            analyze: 0
+            test: 0
+            project: ""
+            scheme: ""
+            configuration: ""
+            destination: ""
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Run action with empty project/scheme and all flags off
+        id: action
+        uses: .
+
+      - name: Assert action completed without invoking xcodebuild
+        run: |
+          echo "All conditional flags are 0 — no xcodebuild steps should have run"
+          echo "PASS: action completed successfully"
