@@ -1,4 +1,4 @@
-name: Test - No-op (all flags disabled)
+name: Test - Info steps (xcode-select and showsdks)
 on:
   workflow_dispatch:
 jobs:
@@ -7,21 +7,26 @@ jobs:
     strategy:
       matrix:
         run-config:
-          - info: 0
+          - info: 1
             build: 0
             analyze: 0
             test: 0
-            project: ''
-            scheme: ''
+            project: 'tests/fixtures/TestApp/TestApp.xcodeproj'
+            scheme: 'TestApp'
             configuration: ''
             destination: ''
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Run action with all flags disabled
+      - name: Verify Xcode is available
+        run: |
+          xcode-select -p
+          echo "Xcode path: $(xcode-select -p)"
+
+      - name: Run action with info enabled
         id: action
         uses: .
 
       - name: Assert action completed successfully
         run: |
-          echo "PASS: action completed with all flags disabled (no steps triggered)"
+          echo "PASS: info steps completed successfully"
