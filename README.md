@@ -6,9 +6,9 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 
 ## Versions
 
-| Version | Tag | Upstream commit |
-|---------|-----|-----------------|
-| v1.0.0 | [`v1.0.0`](https://github.com/chainguard-actions/macmade-action-xcodebuild/tree/v1.0.0) | [`61d7e3c`](https://github.com/macmade/action-xcodebuild/commit/61d7e3c14c3ed93bc6a206fc071a2b09870321f6) |
+| Version | Tag | Upstream commit | Hardening report |
+|---------|-----|-----------------|------------------|
+| v1.0.0 | [`v1.0.0`](https://github.com/chainguard-actions/macmade-action-xcodebuild/tree/v1.0.0) | [`61d7e3c`](https://github.com/macmade/action-xcodebuild/commit/61d7e3c14c3ed93bc6a206fc071a2b09870321f6) | [`HARDENING.md`](https://github.com/chainguard-actions/macmade-action-xcodebuild/blob/v1.0.0/HARDENING.md) |
 
 ## Privacy
 
